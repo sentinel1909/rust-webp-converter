@@ -1,0 +1,15 @@
+[package]
+name = "rust-webp-converter"
+version = "0.1.0"
+authors = [ "Jeff Mitchell", "<sentinel1909@protonmail.com>" ]
+edition = "2021"
+description = "A Rust app which converts a single photo to webp format"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3.2.22", features = [ "derive" ] }
+image = "0.24.3"
+webp = "0.2.2"
+log = "0.4.17"
+env_logger = "0.9.1"
