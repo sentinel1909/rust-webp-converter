@@ -23,8 +23,12 @@ fn main() -> std::io::Result<()> {
     let args = Args::parse();
     let inputpath = Path::new(&args.inputfile);
     let outputpath = Path::new(&args.outputfile);
-    let img = image::open(&inputpath).unwrap();
-    let encoder: Encoder = Encoder::from_image(&img).unwrap();
+    let input_img_result = image::open(&inputpath);
+    let input_img = match input_img_result {
+        Ok(img) => img,
+        Err(error) => panic!("problem opening the image file: {:?}", error),
+    };
+    let encoder: Encoder = Encoder::from_image(&input_img).unwrap();
     let webp: WebPMemory = encoder.encode(args.quality);
     std::fs::write(&outputpath, &*webp)?;
     info!("{:?}", "Conversion to webp format successful.");
