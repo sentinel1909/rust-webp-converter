@@ -17,5 +17,3 @@ path = "src/main.rs"
 clap = { version = "3.2.22", features = [ "derive" ] }
 image = "0.24.3"
 webp = "0.2.2"
-log = "0.4.17"
-env_logger = "0.9.1"
